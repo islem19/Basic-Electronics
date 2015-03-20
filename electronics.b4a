@@ -1,0 +1,109 @@
+﻿Version=3.2
+IconFile=
+NumberOfModules=6
+Module1=Resistor
+ModuleVisible1=1
+Module2=inductor
+ModuleVisible2=1
+Module3=opamp
+ModuleVisible3=1
+Module4=opamp1
+ModuleVisible4=1
+Module5=opampinfo
+ModuleVisible5=1
+Module6=amplifier
+ModuleVisible6=0
+Package=b4a.example
+DoNotOverwriteManifest=False
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.basic4ppc.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="4" android:targetSdkVersion="14"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~'End of default text.~\n~
+UserTypesHint=
+NumberOfFiles=8
+File1=300px-op-amp_non-inverting_amplifier.svg.png
+File2=inductor.bal
+File3=Main.bal
+File4=opamp.bal
+File5=opamp1.bal
+File6=opamp1.jpg
+File7=opinfo.bal
+File8=resistor4band.bal
+NumberOfLibraries=30
+Library1=accessibility
+Library2=administrator
+Library3=animation
+Library4=audio
+Library5=camera
+Library6=contentresolver
+Library7=core
+Library8=dateutils
+Library9=daydream
+Library10=gameview
+Library11=gps
+Library12=http
+Library13=httputils2
+Library14=ime
+Library15=javaobject
+Library16=json
+Library17=livewallpaper
+Library18=network
+Library19=nfc
+Library20=phone
+Library21=preferenceactivity
+Library22=randomaccessfile
+Library23=reflection
+Library24=serial
+Library25=sip
+Library26=sql
+Library27=stringutils
+Library28=tts
+Library29=usb
+Library30=xmlsax
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: Electronics
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: unspecified
+	#CanInstallToExternalStorage: True
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: False
+	#IncludeTitle: False
+#End Region
+
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'These variables can be accessed from all modules.
+
+End Sub
+
+Sub Globals
+	'These global variables will be redeclared each time the activity is created.
+	'These variables can only be accessed from this module.
+	Private Button1 As Button
+	Private Button2 As Button
+	Private Spinner1 As Spinner
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	'Do not forget to load the layout file created with the visual designer. For example:
+	Activity.LoadLayout("Main")
+	Spinner1.AddAll(Array As String ("Resistance/inductance","Operational Amplifier"))
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+Sub Button1_Click
+	If Spinner1.SelectedIndex = 0 Then StartActivity("Resistor")
+	If Spinner1.SelectedIndex = 1 Then StartActivity("opamp")
+End Sub
+
+Sub Button2_Click
+	Activity.Finish
+End Sub
